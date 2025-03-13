@@ -20,4 +20,14 @@
 --space-xl: clamp(3.375rem, 3.2446rem + 0.6522vw, 3.75rem);
 --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
 --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
+
+/* Color */
+
+/* Knapper */
+--button-color: #FFCC4A;
+--button-color-alternate: #151515;
+
+/* Header */
+--header-color: #1B1B1BE8;
+--button-color: #FFCC4A;
 }
