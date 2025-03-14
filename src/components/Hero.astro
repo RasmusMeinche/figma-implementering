@@ -8,10 +8,21 @@ const employeesData = await fetch(
 console.log(employeesData);
 ---
 
-<section class="hero">
+<section class="hero full-bleed">
+  <div class="hero-text"></div>
+  <div class="image">
+    <img src="../../public/images/hero-img.jpg" alt="" />
+  </div>
   <Services />
 </section>
 
 <style>
-  /* Styles her */
+  section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  div {
+  }
 </style>
