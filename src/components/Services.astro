@@ -16,3 +16,27 @@ const servicesData = await fetch(
     ))
   }
 </ul>
+
+<style>
+  ul {
+    --gap: 1rlh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rlh;
+    max-inline-size: 1000px;
+    margin-inline: auto;
+    padding: var(--gap);
+    width: 100%;
+    justify-items: center;
+  }
+
+  li {
+    display: grid;
+    grid-row: span 3;
+    gap: 0;
+    grid-template-rows: subgrid;
+    background: oklch(90% 0.05 270);
+    color: oklch(20% 0.15 270);
+    border-radius: 6px;
+  }
+</style>
