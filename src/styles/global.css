@@ -40,7 +40,7 @@ main {
 body {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    grid-template-columns: 1fr [content-start] minmax(0, 600px) [middle] minmax(0, 600px) [content-end] 1fr;
+    grid-template-columns: minmax(20px, 1fr) [content-start] minmax(0, 600px) [middle] minmax(0, 600px) [content-end] minmax(20px, 1fr);
 
     > * {
         grid-column: 2;

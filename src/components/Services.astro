@@ -5,47 +5,39 @@ const servicesData = await fetch(
 ).then((response) => response.json());
 ---
 
-<div class="full-bleed">
-  <ul>
-    {
-      servicesData.services.map((service) => (
-        <li>
-          <h2>{service.title}</h2>
-          <p>{service.description}</p>
-          <a href="#0">{service.buttonText}</a>
-        </li>
-      ))
-    }
-  </ul>
-</div>
+<ul>
+  {
+    servicesData.services.map((service) => (
+      <li>
+        <h2>{service.title}</h2>
+        <p>{service.description}</p>
+        <a href="#0">{service.buttonText}</a>
+      </li>
+    ))
+  }
+</ul>
 
 <style>
-  div {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
   ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-column: content;
     gap: 1rlh;
     max-inline-size: 1000px;
     margin-inline: auto;
-    width: 100%;
-    justify-items: center;
     padding: 0;
-    transform: translate(0%, -50%);
   }
 
   li {
     display: grid;
+    grid-template-rows: subgrid;
     grid-row: span 3;
     gap: 0;
-    grid-template-rows: subgrid;
     background: rgba(38, 38, 38, 0.9);
     color: #fff;
     border-radius: 0.5rem;
     padding: 2rem;
+    max-width: 100%;
 
     > *:not(:first-child) {
       margin-top: var(--space-s);
