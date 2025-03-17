@@ -2,7 +2,7 @@
 
 ---
 
-<section>
+<!-- <section>
   <div>
     <img class="en" src="../../public/images/Pattern.png" alt="" />
     <img
@@ -28,6 +28,33 @@
       solutions with measurable results.
     </p>
   </div>
+</section> -->
+<section>
+  <figure>
+    <img class="en" src="../../public/images/Pattern.png" alt="" />
+    <img
+      class="to"
+      src="../../public/images/whattoexpect.jpg"
+      alt="image of guy explaining"
+    />
+  </figure>
+  <div class="text">
+    <h5>WE'LL WORK WITH YOU</h5>
+    <h1>What To Expect</h1>
+    <p>
+      Our collaboration is built on transparency, efficiency, and measurable
+      results. Together, we create strategies tailored to your unique needs and
+      goals.
+    </p>
+    <p>
+      Collaborate to build actionable strategies that drive sustainable growth
+      and deliver tangible outcomes.
+    </p>
+    <p>
+      Identify opportunities to optimize processes and implement impactful
+      solutions with measurable results.
+    </p>
+  </div>
 </section>
 
 <style>
@@ -36,36 +63,44 @@
       display: grid;
       grid-column: content;
       grid-template-columns: subgrid;
+      gap: 2rem;
+      margin: 10% 0 10% 0;
 
-      > :first-child {
-        grid-column: 1;
+      figure {
         position: relative;
-        contain: content;
-      }
-
-      .en {
-        object-fit: contain;
-      }
-
-      .to {
-        object-fit: contain;
-        object-position: 50% -50%;
-        place-self: center;
-        z-index: 2;
-        width: 100%;
-        height: 100%;
-        border-radius: var(--border-rad);
-      }
-
-      .tre {
-        position: absolute;
-        z-index: 1;
-        top: 10%;
-        left: 10%;
-
-        img {
+        display: block;
+        .en {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          border-radius: 9px;
+        }
+        &::before {
+          content: "";
+          background: green;
+          width: 164px;
+          height: 183px;
+          position: absolute;
+          top: 20%;
+          left: 17rem;
+          z-index: -1;
+          border-radius: 9px;
+        }
+        .to {
+          position: absolute;
+          top: 10%;
+          left: 10%;
+          z-index: 0;
+          height: 300px;
+          width: 1222px;
+          object-fit: cover;
+          border-radius: 1rem;
         }
       }
+    }
+    .text {
+      contain: size;
     }
   }
 </style>
