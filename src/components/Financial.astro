@@ -1,3 +1,77 @@
 ---
-
+import ArrowRight from "../icons/arrow--right.svg";
+import ArrowLeft from "../icons/arrow-left.svg";
 ---
+
+<section>
+  <div>
+    <h1>Financial Projections</h1>
+    <p>
+      Financial projections are essential for planning and monitoring a
+      company’s performance. They provide insights into potential revenue,
+      expenses, and profitability over specific periods.
+    </p>
+  </div>
+  <div>
+    <div class="container-arrow-left">
+      <ArrowLeft class="arrow-left" />
+    </div>
+    <div class="container-arrow-right">
+      <ArrowRight class="arrow-right" />
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: content;
+
+    div {
+      display: grid;
+    }
+
+    > :first-child {
+      grid-column: 1 / middle;
+    }
+
+    > :last-child {
+      grid-column: middle / 3;
+      align-items: end;
+    }
+
+    div:last-child {
+      display: flex;
+      justify-content: center;
+      /*       align-items: center; */
+    }
+
+    div:first-child *:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    h1 {
+      font-size: var(--step-2);
+    }
+
+    .arrow-left,
+    .arrow-right {
+      padding: 1rem;
+      box-sizing: content-box;
+    }
+
+    .container-arrow-left {
+      background-color: var(--button-color-alternate);
+      border-radius: var(--button-border-radius);
+    }
+    .container-arrow-right {
+      background-color: var(--button-color);
+      border-radius: var(--button-border-radius);
+    }
+
+    .arrow-left {
+      filter: invert(1);
+    }
+  }
+</style>

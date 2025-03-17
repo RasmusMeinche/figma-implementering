@@ -21,12 +21,14 @@
 --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
 --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
 
-/* Color */
+/* Border Radius */
+--border-rad: 1rem;
 
 /* Knapper */
 --button-color: #FFCC4A;
 --button-color-white: #fff;
 --button-color-alternate: #151515;
+--button-border-radius: 2rem;
 
 /* Header */
 --header-color: #1B1B1BE8;
