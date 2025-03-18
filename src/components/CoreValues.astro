@@ -7,14 +7,15 @@ const CoreData = await fetch(
 
 <section>
   <div class="text-container">
-    <p>Growing with our Clients</p>
-    <h1>{CoreData.title}</h1>
-    <p>{CoreData.subtitle}</p>
     <div>
-      {CoreData.text}
+      <p>Growing with our Clients</p>
+      <h1>{CoreData.title}</h1>
+      <p>{CoreData.subtitle}</p>
+    </div>
+    <div>
+      <button>{CoreData.button.text}</button>
     </div>
   </div>
-  <div></div>
   <ul>
     {
       CoreData.values.map(async (coreValue) => {
@@ -48,6 +49,42 @@ const CoreData = await fetch(
     .text-container {
       grid-column: content;
       display: flex;
+      margin-bottom: 5%;
+      color: var(--back-white);
+      justify-content: space-between;
+    }
+
+    .text-container p:first-of-type {
+      padding: var(--padding-kicker);
+      border-radius: var(--border-rad);
+      background-color: var(--button-color);
+      color: var(--card-bg-sort);
+      justify-self: start;
+    }
+
+    .text-container h1 {
+      font-size: var(--step-3);
+    }
+
+    .text-container div *:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    .text-container p:last-of-type {
+      width: 60%;
+    }
+
+    .text-container > div:last-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+    }
+    .text-container > div:last-child button {
+      background-color: var(--back-white);
+      padding: 1rem 1.5rem;
+      border-radius: var(--button-border-radius);
+      color: var(--back-black);
     }
 
     ul {
@@ -56,6 +93,7 @@ const CoreData = await fetch(
       grid-template-columns: repeat(4, 1fr);
       justify-content: space-between;
       gap: 2rem;
+      padding: 0;
 
       li {
         list-style: none;

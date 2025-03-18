@@ -21,8 +21,6 @@
 --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
 --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
 
-/* Border Radius */
---border-rad: 1rem;
 
 /* Knapper */
 --button-color: #FFCC4A;
@@ -44,6 +42,7 @@
 --back-yellow: #FBC336;
 --back-white: #FFF;
 --back-grey: #F5F5F5;
+--back-black: #181818;
 
 /* Cards */
 --card-bg-color: #EBEBEB;
