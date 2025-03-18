@@ -37,43 +37,43 @@
       grid-column: content;
       grid-template-columns: subgrid;
       gap: 2rem;
-      margin: 10% 0 10% 0;
+      margin: 5% 0 0 0;
+      height: 30svh;
 
       figure {
         position: relative;
-        display: block;
+        height: 100%;
         .en {
           position: absolute;
           top: 0;
           left: 0;
           z-index: -1;
-          border-radius: 9px;
         }
         &::before {
           content: "";
-          background: green;
+          background: #4eaf4e;
           width: 164px;
           height: 183px;
           position: absolute;
-          top: 20%;
-          left: 17rem;
-          z-index: -1;
-          border-radius: 9px;
+          top: 15%;
+          left: 12%;
+          z-index: 0;
+          border-radius: 1rem;
         }
         .to {
           position: absolute;
-          top: 10%;
-          left: 10%;
+          top: 30%;
+          left: 20%;
           z-index: 0;
-          height: 300px;
-          width: 1222px;
+          height: 360px;
+          width: 80%;
           object-fit: cover;
+          object-position: 0% 30%;
           border-radius: 1rem;
         }
       }
-    }
-    .text {
-      contain: size;
+      .text {
+      }
     }
   }
 </style>
