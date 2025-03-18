@@ -1,0 +1,37 @@
+---
+//@ts-nocheck
+const CoreData = await fetch(
+  "https://frontend-design-theme.netlify.app/api/coreValues"
+).then((response) => response.json());
+---
+
+<ul>
+  {
+    CoreData.values.map(async (coreValue) => {
+      const Icon = await import(`../icons/${coreValue.icon}.svg`).then(
+        (module) => module.default
+      );
+
+      return (
+        <li>
+          <Icon />
+          <h2>{coreValue.title}</h2>
+          <p>{coreValue.description}</p>
+          <a href={coreValue.link.url}>{coreValue.link.text}</a>
+        </li>
+      );
+    })
+  }
+</ul>
+
+<style>
+  ul {
+    display: grid;
+    grid-column: content;
+    grid-template-columns: repeat(4, 1fr);
+
+    li {
+      display: grid;
+    }
+  }
+</style>

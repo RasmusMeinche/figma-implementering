@@ -1,9 +1,9 @@
 ---
-
+const { data } = Astro.props;
 ---
 
 <div class="stats">
-  <div class="stat" style="--percent: 25"></div>
+  <div class="stat" style={`--percent: ${data.value}`}></div>
 </div>
 
 <style>

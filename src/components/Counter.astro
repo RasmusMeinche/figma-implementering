@@ -1,22 +1,21 @@
 ---
 import CircelCounter from "./CircelCounter.astro";
+
+const expData = await fetch(
+  "https://frontend-design-theme.netlify.app/api/experience"
+).then((response) => response.json());
+console.log(expData);
 ---
 
 <section>
   <div class="container">
     <div class="info">
       <p>Experience</p>
-      <h1>More than 25 years of experience</h1>
-      <p>3000+ our clients are insured around the World</p>
+      <h1>{expData.heading}</h1>
+      <p>{expData.subheading}</p>
     </div>
     <div>
-      <CircelCounter />
-    </div>
-    <div>
-      <CircelCounter />
-    </div>
-    <div>
-      <CircelCounter />
+      {expData.stats.map((stat) => <CircelCounter data={stat} />)}
     </div>
   </div>
 </section>
