@@ -14,9 +14,7 @@ console.log(expData);
       <h1>{expData.heading}</h1>
       <p>{expData.subheading}</p>
     </div>
-    <div>
-      {expData.stats.map((stat) => <CircelCounter data={stat} />)}
-    </div>
+    {expData.stats.map((stat) => <CircelCounter data={stat} />)}
   </div>
 </section>
 
@@ -36,7 +34,6 @@ console.log(expData);
       align-items: center;
       width: 100%;
     }
-
     .container div:first-child > *:not(:first-child) {
       margin-top: 20px;
     }
@@ -51,7 +48,6 @@ console.log(expData);
     h1 {
       font-size: var(--step-3);
       font-weight: bold;
-      width: 80%;
     }
   }
 </style>
