@@ -1,5 +1,5 @@
 ---
-
+import Checkmark from "../icons/checkmark.svg";
 ---
 
 <section>
@@ -19,14 +19,22 @@
       results. Together, we create strategies tailored to your unique needs and
       goals.
     </p>
-    <p>
-      Collaborate to build actionable strategies that drive sustainable growth
-      and deliver tangible outcomes.
-    </p>
-    <p>
-      Identify opportunities to optimize processes and implement impactful
-      solutions with measurable results.
-    </p>
+    <div class="checkmark">
+      <div>
+        <Checkmark class="check" />
+        <p>
+          Collaborate to build actionable strategies that drive sustainable
+          growth and deliver tangible outcomes.
+        </p>
+      </div>
+      <div>
+        <Checkmark class="check" />
+        <p>
+          Identify opportunities to optimize processes and implement impactful
+          solutions with measurable results.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -73,6 +81,43 @@
         }
       }
       .text {
+        h5 {
+          background-color: var(--button-color);
+          width: fit-content;
+          padding: var(--padding-kicker);
+          border-radius: var(--border-rad);
+        }
+
+        > *:not(:first-child) {
+          margin-top: 20px;
+        }
+
+        h1 {
+          font-size: var(--step-3);
+          font-weight: bold;
+        }
+
+        p {
+          color: var(--font-color-alternate);
+        }
+
+        .checkmark {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .checkmark div {
+          display: flex;
+          flex-direction: row;
+          gap: 20px;
+          align-items: start;
+        }
+
+        .check {
+          color: #4eaf4e;
+          width: 30px;
+          margin-top: 5px;
+        }
       }
     }
   }

@@ -14,7 +14,11 @@ console.log(expData);
       <h1>{expData.heading}</h1>
       <p>{expData.subheading}</p>
     </div>
-    {expData.stats.map((stat) => <CircelCounter data={stat} />)}
+    {
+      expData.stats.map((stat) => (
+        <CircelCounter key={stat.label} data={stat} label={stat.label} />
+      ))
+    }
   </div>
 </section>
 
@@ -48,6 +52,7 @@ console.log(expData);
     h1 {
       font-size: var(--step-3);
       font-weight: bold;
+      width: 90%;
     }
   }
 </style>
