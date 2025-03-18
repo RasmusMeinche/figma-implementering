@@ -1,0 +1,58 @@
+---
+import CircelCounter from "./CircelCounter.astro";
+---
+
+<section>
+  <div class="container">
+    <div class="info">
+      <p>Experience</p>
+      <h1>More than 25 years of experience</h1>
+      <p>3000+ our clients are insured around the World</p>
+    </div>
+    <div>
+      <CircelCounter />
+    </div>
+    <div>
+      <CircelCounter />
+    </div>
+    <div>
+      <CircelCounter />
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    background-color: var(--back-yellow);
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: content;
+    grid-column: 1 / -1;
+    padding: 7% 0 7% 0;
+
+    .container {
+      grid-column: content;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .container div:first-child > *:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    .info *:first-child {
+      background-color: white;
+      width: fit-content;
+      padding: var(--padding-kicker);
+      border-radius: var(--border-rad);
+    }
+
+    h1 {
+      font-size: var(--step-3);
+      font-weight: bold;
+      width: 80%;
+    }
+  }
+</style>
