@@ -42,10 +42,13 @@
 
 /* Color */
 --back-yellow: #FBC336;
-
+--back-white: #FFF;
+--back-grey: #F5F5F5;
 }
 
-
+[data-surface="primary"] {
+--bg-card-main: var(--back-grey);
+}
 
 main {
     display: contents;

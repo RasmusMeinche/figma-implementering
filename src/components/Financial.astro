@@ -1,15 +1,17 @@
 ---
 import ArrowRight from "../icons/arrow--right.svg";
 import ArrowLeft from "../icons/arrow-left.svg";
+
+const finData = await fetch(
+  "https://frontend-design-theme.netlify.app/api/financialProjections"
+).then((response) => response.json());
 ---
 
 <section>
   <div>
-    <h1>Financial Projections</h1>
+    <h1>{finData.title}</h1>
     <p>
-      Financial projections are essential for planning and monitoring a
-      company’s performance. They provide insights into potential revenue,
-      expenses, and profitability over specific periods.
+      {finData.subtitle}
     </p>
   </div>
   <div>
@@ -22,7 +24,49 @@ import ArrowLeft from "../icons/arrow-left.svg";
   </div>
 </section>
 
+<ul class="full-width">
+  {
+    finData.values.map(async (finData) => {
+      const Icon = await import(`../icons/${finData.icon}.svg`).then(
+        (module) => module.default
+      );
+
+      return (
+        <li>
+          <Icon />
+          <h2>{finData.title}</h2>
+          <p>{finData.description}</p>
+          <a href={finData.link.url}>{finData.link.text}</a>
+        </li>
+      );
+    })
+  }
+</ul>
+
 <style>
+  ul.full-width {
+    list-style: none;
+
+    grid-column: 1/-1;
+    scroll-snap-type: inline mandatory;
+
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+
+    padding-inline: max(20px, 50% - 50rem / 2);
+    scroll-padding-inline-start: max(20px, 50% - 50rem) / 2;
+
+    li {
+      flex-basis: min(90%, 400px);
+      flex-shrink: 0;
+
+      /*     scroll-snap-align: middle; */
+
+      padding: 1rem;
+      border: 1px solid black;
+    }
+  }
   section {
     display: grid;
     grid-template-columns: subgrid;
