@@ -44,6 +44,10 @@
 --back-yellow: #FBC336;
 --back-white: #FFF;
 --back-grey: #F5F5F5;
+
+/* Cards */
+--card-bg-color: #EBEBEB;
+--card-bg-sort: #181818;
 }
 
 [data-surface="primary"] {
