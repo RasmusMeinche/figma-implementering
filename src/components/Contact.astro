@@ -15,21 +15,21 @@ import Pin from "../icons/pin.svg";
         collaborative.
       </p>
     </div>
-    <div>
+    <div class="flex-container">
       <div><Phone /></div>
       <div>
         <p>Call Today</p>
         <h5>+1 800 100 900</h5>
       </div>
     </div>
-    <div>
+    <div class="flex-container">
       <div><Clock /></div>
       <div>
         <p>Monday To Friday</p>
         <h5>9AM - 5PM</h5>
       </div>
     </div>
-    <div>
+    <div class="flex-container">
       <div><Pin /></div>
       <div>
         <p>USA Office</p>
@@ -59,6 +59,55 @@ import Pin from "../icons/pin.svg";
     display: flex;
     flex-direction: column;
     /*     width: 50%; */
+
+    :first-child p:first-of-type {
+      padding: var(--padding-kicker);
+      border-radius: var(--border-rad);
+      background-color: var(--button-color);
+      color: var(--card-bg-sort);
+      justify-self: start;
+    }
+
+    h1 {
+      font-size: var(--step-3);
+      font-weight: bold;
+    }
+
+    :first-child *:not(:first-child) {
+      margin-top: 10px;
+    }
+
+    :first-child p:last-of-type {
+      color: var(--font-color-alternate);
+    }
+
+    .flex-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 20px;
+
+      *:first-child {
+        /*         margin-top: 20px; */
+      }
+      :first-child:not(p) {
+        border-radius: 50%;
+        padding: 0.5rem;
+        width: fit-content;
+      }
+      * svg:first-child {
+        /*         margin-top: 20px; */
+        color: #4eaf4e;
+      }
+
+      div p:first-of-type {
+        color: var(--font-color-alternate);
+      }
+
+      div h5:last-child {
+        font-weight: bold;
+      }
+    }
   }
 
   .container-two {
