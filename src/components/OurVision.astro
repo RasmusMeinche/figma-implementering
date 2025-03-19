@@ -13,30 +13,49 @@ import Checkmark from "../icons/checkmark.svg";
   </figure>
   <div class="text">
     <h5>WE'LL WORK WITH YOU</h5>
-    <h1>What To Expect</h1>
+    <h1>Turn your ideas into reality.</h1>
     <p>
-      Our collaboration is built on transparency, efficiency, and measurable
-      results. Together, we create strategies tailored to your unique needs and
-      goals.
+      Capitalize on low hanging fruit to identify a ballpark value added
+      activity beta test. Override the digital divide with additional from
+      DevOps.
     </p>
     <div class="checkmark">
       <div>
         <Checkmark class="check" />
         <p>
-          Collaborate to build actionable strategies that drive sustainable
-          growth and deliver tangible outcomes.
+          Bring to the table win-win survival strategies to ensure proactive
+          domination. At the end of the day.
         </p>
       </div>
       <div>
         <Checkmark class="check" />
         <p>
-          Identify opportunities to optimize processes and implement impactful
-          solutions with measurable results.
+          Capitalize on low hanging fruit to identify a ballpark value added
+          activity to beta test override the digital.
         </p>
       </div>
     </div>
   </div>
 </section>
+
+<article>
+  <div>
+    <h1>1128+</h1>
+    <p>Successful Work</p>
+  </div>
+  <div>
+    <h1>908+</h1>
+    <p>Team member</p>
+  </div>
+  <div>
+    <h1>258+</h1>
+    <p>Happy Customers</p>
+  </div>
+  <div>
+    <h1>564+</h1>
+    <p>Creative Idea</p>
+  </div>
+</article>
 
 <style>
   @layer components {
@@ -45,34 +64,36 @@ import Checkmark from "../icons/checkmark.svg";
       grid-column: content;
       grid-template-columns: subgrid;
       gap: 2rem;
-      margin: 5% 0 0 0;
+      margin: 0 0 24% 0;
       height: 30svh;
 
       figure {
         display: grid;
+        grid-column: 2;
         position: relative;
-        height: 100%;
+        height: 10svh;
         .en {
           position: absolute;
-          top: 0;
-          left: 0;
+          top: 120%;
+          right: 5%;
           z-index: -1;
+          width: 40%;
         }
         &::before {
           content: "";
           background: #4eaf4e;
-          width: 164px;
-          height: 183px;
+          width: 143px;
+          height: 124px;
           position: absolute;
-          top: 15%;
-          left: 12%;
+          top: 155%;
+          right: 12%;
           z-index: 0;
           border-radius: 1rem;
         }
         .to {
           position: absolute;
-          top: 30%;
-          left: 20%;
+          top: 185%;
+          right: 20%;
           z-index: 0;
           height: 360px;
           width: 80%;
@@ -83,7 +104,8 @@ import Checkmark from "../icons/checkmark.svg";
       }
       .text {
         h5 {
-          background-color: var(--button-color);
+          background-color: var(--button-color-green);
+          color: var(--font-color-white);
           width: fit-content;
           padding: var(--padding-kicker);
           border-radius: var(--border-rad);
@@ -101,7 +123,6 @@ import Checkmark from "../icons/checkmark.svg";
         p {
           color: var(--font-color-alternate);
         }
-
         .checkmark {
           display: flex;
           flex-direction: column;
@@ -114,11 +135,29 @@ import Checkmark from "../icons/checkmark.svg";
           align-items: start;
         }
 
+        .checkmark div:not(:first-child) {
+          margin-top: 20px;
+        }
+
         .check {
           color: #4eaf4e;
           width: 30px;
           margin-top: 5px;
         }
+      }
+    }
+
+    article {
+      display: flex;
+      grid-template-columns: subgrid;
+      grid-column: content;
+      justify-content: space-around;
+      padding: 0 3rem 0 3rem;
+      margin: 2% 0 10%;
+
+      h1 {
+        font-size: var(--step-3);
+        font-weight: bold;
       }
     }
   }

@@ -1,0 +1,129 @@
+---
+const employeesData = await fetch(
+  "https://frontend-design-theme.netlify.app/api/employees"
+)
+  .then((response) => response.json())
+  .then((data) => data.slice(0, 3));
+---
+
+<section>
+  <div>
+    <p>Our team</p>
+    <h1>We champion the bold to achieve the extraordinary</h1>
+    <p>
+      Our success stems from the synergy between dedicated teams and our valued
+      clients. We prioritize a company culture that fosters exceptional
+      productivity, ensures customer satisfaction, and promotes mutual respect
+      among all team members.
+    </p>
+  </div>
+  <div class="grid-box">
+    {
+      employeesData.map((member) => (
+        <div class="team-member" key={member.id}>
+          <div class="image-wrapper">
+            <img src={member.img} alt={member.name} />
+            <p class="title">{member.title}</p>
+          </div>
+          <h3>{member.name}</h3>
+          <p>{member.description}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: content;
+    margin-top: 7%;
+
+    :first-child *:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    > *:first-child p:first-child {
+      background-color: var(--button-color);
+      border-radius: var(--border-rad);
+      color: var(--font-color-black);
+      padding: var(--padding-kicker);
+      width: fit-content;
+    }
+
+    > *:first-child p:last-child {
+      color: var(--font-color-alternate);
+    }
+
+    > :first-child {
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: var(--step-3);
+      font-weight: bold;
+    }
+
+    .team-member > *:last-child {
+      color: var(--font-color-alternate);
+    }
+
+    .grid-box {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column: content;
+      gap: 2rem;
+      margin-top: 2rem;
+      text-align: center;
+      align-items: center;
+    }
+
+    .team-member {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+      align-self: start;
+    }
+
+    .team-member > * {
+      margin-top: 20px;
+    }
+
+    .image-wrapper {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .image-wrapper img {
+      border-radius: var(--border-rad);
+      width: 100%;
+      height: auto;
+    }
+
+    .title {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      background-color: var(--button-color);
+      border-radius: var(--border-rad);
+      color: var(--font-color-black);
+    }
+
+    h3 {
+      font-size: var(--step-0);
+      font-weight: bold;
+    }
+  }
+</style>

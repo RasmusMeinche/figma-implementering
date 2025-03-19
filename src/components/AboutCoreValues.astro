@@ -1,0 +1,142 @@
+---
+//@ts-nocheck
+const CoreData = await fetch(
+  "https://frontend-design-theme.netlify.app/api/coreValues"
+).then((response) => response.json());
+---
+
+<section>
+  <div class="text-container">
+    <div>
+      <p>Growing with our Clients</p>
+      <h1>{CoreData.title}</h1>
+      <p>{CoreData.subtitle}</p>
+    </div>
+    <div>
+      <button>{CoreData.button.text}</button>
+    </div>
+  </div>
+  <ul>
+    {
+      CoreData.values.map(async (coreValue) => {
+        const Icon = await import(`../icons/${coreValue.icon}.svg`).then(
+          (module) => module.default
+        );
+
+        return (
+          <li>
+            <div class="svg-wrapper">
+              <Icon />
+            </div>
+            <h2>{coreValue.title}</h2>
+            <p>{coreValue.description}</p>
+            <a href={coreValue.link.url}>{coreValue.link.text}</a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</section>
+
+<style>
+  section {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+    background-color: var(--back-grey);
+    padding: 5% 0 5% 0;
+
+    .text-container {
+      grid-column: content;
+      display: flex;
+      margin-bottom: 5%;
+      color: var(--font-color-black);
+      justify-content: space-between;
+    }
+
+    .text-container p:first-of-type {
+      padding: var(--padding-kicker);
+      border-radius: var(--border-rad);
+      background-color: var(--button-color);
+      color: var(--card-bg-sort);
+      justify-self: start;
+    }
+
+    .text-container h1 {
+      font-size: var(--step-3);
+      font-weight: bold;
+    }
+
+    .text-container div *:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    .text-container p:last-of-type {
+      color: var(--font-color-alternate);
+      width: 60%;
+    }
+
+    .text-container > div:last-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+    }
+    .text-container > div:last-child button {
+      background-color: var(--back-black);
+      padding: 1rem 1.5rem;
+      border-radius: var(--button-border-radius);
+      color: var(--font-color-white);
+    }
+
+    ul {
+      display: grid;
+      grid-column: content;
+      grid-template-columns: repeat(4, 1fr);
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 0;
+      height: auto;
+
+      li {
+        list-style: none;
+        background-color: var(--back-white);
+        padding: 2rem;
+        border-radius: 1rem;
+      }
+
+      .svg-wrapper {
+        background-color: var(--card-bg-sort);
+        border-radius: 50%;
+        padding: 0.5rem;
+        display: inline-flex;
+      }
+
+      svg {
+        width: 2rem;
+        height: 2rem;
+        display: block;
+        color: white;
+      }
+
+      li *:not(:first-child) {
+        margin-top: 20px;
+      }
+
+      li *:nth-child(2) {
+        font-size: var(--step-0);
+        font-weight: 500;
+      }
+
+      p {
+        color: var(--font-color-alternate);
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--card-bg-sort);
+        margin-top: 20px;
+      }
+    }
+  }
+</style>
