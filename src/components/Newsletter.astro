@@ -1,0 +1,78 @@
+---
+
+---
+
+<section>
+  <div>
+    <h1>Subscribe Our Newsletter</h1>
+    <p>Build stronger Customer Relationships with Consultalk</p>
+  </div>
+  <div>
+    <input type="text" placeholder="Your mail address" />
+    <a href="#">Subscribe</a>
+  </div>
+  <img src="../../public/images/Pattern2.png" alt="" />
+</section>
+
+<style>
+  section {
+    grid-column: content;
+    display: flex;
+    background-color: var(--card-bg-sort);
+    padding: 5rem 5rem;
+    align-items: center;
+    border-radius: 1rem;
+    margin: 7% 0 7% 0;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+
+    > :first-child {
+      color: var(--back-white);
+    }
+
+    div:first-of-type h1 {
+      font-size: var(--step-2);
+      line-height: 3rem;
+      font-weight: bold;
+    }
+
+    input {
+      padding: 1rem 2rem;
+      background-color: var(--back-white);
+      border-radius: 2rem;
+    }
+
+    a {
+      background-color: var(--back-yellow);
+      padding: 1rem 2rem;
+      border-radius: var(--button-border-radius);
+      color: var(--back-black);
+      text-decoration: none;
+      margin-left: 1rem;
+      position: relative;
+      z-index: 3;
+    }
+
+    img {
+      position: absolute;
+      top: -65%;
+      right: -12%;
+      transform: rotate(45deg);
+      z-index: 1;
+    }
+
+    &::before {
+      content: "";
+      background: #4eaf4e;
+      border-radius: 1rem;
+      width: 164px;
+      height: 183px;
+      position: absolute;
+      top: 70%;
+      right: -3%;
+      transform: rotate(45deg);
+      z-index: 2;
+    }
+  }
+</style>
