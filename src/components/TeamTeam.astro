@@ -5,17 +5,33 @@ const employeesData = await fetch(
 ---
 
 <section>
+  <div class="text-container">
+    <div>
+      <h1>Meet Our Great Team</h1>
+      <p>
+        Welcome to our amazing team! We are a group of passionate individuals
+        dedicated to excellence and innovation. Each member brings unique skills
+        and experiences, working together to achieve our goals. Join us as we
+        embark on exciting projects and create lasting impacts.
+      </p>
+    </div>
+    <div>
+      <button>Join our team</button>
+    </div>
+  </div>
   <div class="grid-box">
     {
       employeesData.map((member) => (
-        <div class="team-member" key={member.id}>
-          <div class="image-wrapper">
-            <img src={member.img} alt={member.name} />
-            <p class="title">{member.title}</p>
+        <a href={member.id}>
+          <div class="team-member" key={member.id}>
+            <div class="image-wrapper">
+              <img src={member.img} alt={member.name} />
+              <p class="title">{member.title}</p>
+            </div>
+            <h3>{member.name}</h3>
+            <p>{member.description}</p>
           </div>
-          <h3>{member.name}</h3>
-          <p>{member.description}</p>
-        </div>
+        </a>
       ))
     }
   </div>
@@ -26,6 +42,47 @@ const employeesData = await fetch(
     display: grid;
     grid-template-columns: subgrid;
     grid-column: content;
+    margin: 7% 0 7% 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: initial;
+  }
+
+  .text-container {
+    grid-column: content;
+    display: flex;
+    margin-bottom: 5%;
+    color: var(--font-color-black);
+    justify-content: space-between;
+  }
+  .text-container h1 {
+    font-size: var(--step-3);
+    font-weight: bold;
+  }
+
+  .text-container div *:not(:first-child) {
+    margin-top: 20px;
+  }
+
+  .text-container p:last-of-type {
+    color: var(--font-color-alternate);
+    width: 60%;
+  }
+
+  .text-container > div:last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+  }
+  .text-container > div:last-child button {
+    background-color: var(--back-black);
+    padding: 1rem 1.5rem;
+    border-radius: var(--button-border-radius);
+    color: var(--font-color-white);
+    width: max-content;
   }
 
   .grid-box {
@@ -52,6 +109,9 @@ const employeesData = await fetch(
     margin-top: 20px;
   }
 
+  p:last-child:not(.image-wrapper p) {
+    color: var(--font-color-alternate);
+  }
   .image-wrapper {
     position: relative;
     width: 100%;
