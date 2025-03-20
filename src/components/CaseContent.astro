@@ -1,0 +1,64 @@
+---
+
+---
+
+<section>
+  <div>
+    <img src="/case.png" alt="" />
+  </div>
+  <div class="flex-box">
+    <div>
+      <h5>Case Name</h5>
+      <p>Taxes & Efficiency</p>
+    </div>
+    <div>
+      <h5>Category</h5>
+      <p>Business</p>
+    </div>
+    <div>
+      <h5>Date</h5>
+      <p>27th September 2025</p>
+    </div>
+    <button>Live Preview</button>
+  </div>
+</section>
+
+<style>
+  section {
+    margin: 7% 0 7% 0;
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: content;
+    align-items: center;
+    background-image: url("../../public/images/case.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 1rem;
+    width: 100%;
+    height: 50svh;
+  }
+
+  .flex-box {
+    display: flex;
+    grid-column: content;
+    justify-content: space-between;
+    background-color: var(--back-black);
+    padding: 3rem;
+    color: var(--font-color-white);
+    border-radius: 1rem;
+    width: 90%;
+    place-self: center;
+    transform: translate(0, 100%);
+  }
+
+  h5 {
+    font-weight: bold;
+  }
+
+  button {
+    background-color: var(--back-yellow);
+    padding: 1rem 2rem;
+    border-radius: var(--button-border-radius);
+    color: var(--back-black);
+  }
+</style>
