@@ -22,8 +22,8 @@ const employeesData = await fetch(
   <div class="grid-box">
     {
       employeesData.map((member) => (
-        <a href={member.id}>
-          <div class="team-member" key={member.id}>
+        <a href={`/employee/${member.slug}`}>
+          <div class="team-member">
             <div class="image-wrapper">
               <img src={member.img} alt={member.name} />
               <p class="title">{member.title}</p>

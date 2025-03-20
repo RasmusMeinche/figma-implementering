@@ -1,0 +1,129 @@
+---
+// @ts-nocheck
+import Layout from "../../layouts/Layout.astro";
+
+//laver statiske stier for hvert produkt
+export async function getStaticPaths() {
+  const url = "https://frontend-design-theme.netlify.app/api/employees";
+  // Forklaring på brugen af url og options kan findes på productlist.astro
+
+  // Fetcher data og koncerterer til json
+  const employees = await fetch(url).then((res) => res.json());
+  // Retunerer stien ud fra slug, som er en del af vores database i supabase
+  return employees.map((data) => ({
+    params: { slug: data.slug }, // [artist]=artist.slug
+    props: {
+      data,
+    }, // sender al data med som props
+  }));
+}
+// henter data som props, som bruges til at vise data på sitet.
+const { data } = Astro.props;
+console.log(data);
+---
+
+<Layout>
+  <section>
+    <div><img src={data.img} alt="" /></div>
+    <div>
+      <div class="icons">
+        <div>
+          <h1>{data.name}</h1>
+          <p>{data.title}</p>
+        </div>
+        <span>|</span>
+        <div>
+          {
+            data.social_links.map((link) => (
+              <li>
+                <a href={link.url} set:html={link.icon} />
+              </li>
+            ))
+          }
+        </div>
+      </div>
+      <div class="flex-box">
+        <p>{data.description_long}</p>
+        <hr />
+        <h1>Past experience</h1>
+        <p>{data.past_experience}</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: content;
+    margin: 7% 0 7% 0;
+    gap: 2rem;
+
+    p {
+      color: var(--font-color-alternate);
+    }
+  }
+
+  h1 {
+    font-size: var(--step-2);
+    font-weight: bold;
+  }
+
+  .flex-box {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2;
+    line-height: 1.5rem;
+
+    > :first-child {
+      margin-top: 2rem;
+    }
+
+    p:last-of-type {
+      margin-top: 20px;
+    }
+  }
+
+  span {
+    font-size: var(--step-2);
+  }
+
+  hr {
+    display: block;
+    width: 100%;
+    height: 1px;
+    color: var(--font-color-alternate);
+    margin: 2rem 0;
+  }
+
+  a {
+    color: var(--back-white);
+    padding: 10px;
+  }
+
+  .icons {
+    display: flex;
+    grid-column: 2;
+    max-width: 100%;
+    justify-content: space-between;
+
+    li {
+      list-style: none;
+      align-items: center;
+      background-color: var(--card-bg-sort);
+      border-radius: 50%;
+      display: inline-flex;
+    }
+
+    > :last-child {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    * div {
+      align-items: center;
+    }
+  }
+</style>
