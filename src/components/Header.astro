@@ -1,5 +1,5 @@
 ---
-
+import Login from "./Login.astro";
 ---
 
 <header class="full-bleed">
@@ -14,7 +14,18 @@
       <a href="/about">About</a>
     </div>
     <div>
-      <button>Login</button>
+      <Login class="button" />
+    </div>
+
+    <div id="popup" popover>
+      <h2>Dashboard Login</h2>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+
+      <button popovertarget="popup">Go to dashboard</button>
     </div>
   </section>
 </header>
@@ -40,12 +51,6 @@
 
     h1 {
       font-size: var(--step-0);
-    }
-
-    button {
-      padding: 0.5rem 1rem;
-      background-color: var(--button-color);
-      border-radius: 2rem;
     }
   }
 </style>
